@@ -19,8 +19,10 @@ router.post('/',
      name: req.body.name,
       password: req.body.password,
     email: req.body.email,
-    }).then(user => res.json(user));
-   
+    }).then(user => res.json(user))
+    .cath(err=>console.log(err),
+     res.json({error:'please enter a unique value'}))
+    
 })
 
 //CREATE A USER USING: POST "/api/auth/" 
