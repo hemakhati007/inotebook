@@ -1,10 +1,17 @@
-import mongoose from 'mongoose';
+const mongoose =require('mongoose');
+const { Schema } = mongoose;
 
 //Object based
 const NotesSchema = new Schema(
     //Object
     {
 //values
+
+    user:{
+        //mpdel id of another obj??
+        type: mongoose.Schema.Types.ObjectId,//its like a foreign key
+        //linking the user in this model
+    },
     title:{
         type:String,
         required:true//necessary
@@ -25,4 +32,4 @@ const NotesSchema = new Schema(
 
 });
 
-module.export=mongoose.model('user',NotesSchema)
+module.exports=mongoose.model('user',NotesSchema)

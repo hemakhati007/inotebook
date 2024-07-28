@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+// Database link
 const mongoURI = "mongodb://localhost:27017/iNotebook";
 
 // Function to get promises and connect to MongoDB
