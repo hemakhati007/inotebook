@@ -10,7 +10,8 @@ const NotesSchema = new Schema(
     user:{
         //mpdel id of another obj??
         type: mongoose.Schema.Types.ObjectId,//its like a foreign key
-        //linking the user in this model
+        //linking the this user to the user in this model
+        ref:'User' //model exported with this name
     },
     title:{
         type:String,
@@ -32,4 +33,4 @@ const NotesSchema = new Schema(
 
 });
 
-module.exports=mongoose.model('user',NotesSchema)
+module.exports= mongoose.model('Notes', NotesSchema);
