@@ -6,6 +6,11 @@ connectToMongo();
 const app = express();
 const port = 5000;
 
+var cors = require('cors')
+
+
+app.use(cors())
+
 app.use(express.json()); //middleware to send data to req body   .json()==>to type cast  to json //request are sending in json
 // //home route
 // app.get('/', (req, res) => {
@@ -19,5 +24,5 @@ app.use("/api/auth", require("./routes/auth"));
 app.use('/api/notes',require('./routes/notes'));
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`INotebook backend listening at http://localhost:${port}`);
 }); 
