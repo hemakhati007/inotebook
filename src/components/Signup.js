@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 
 
-const Signup = () => {
+const Signup = ({showAlert}) => {
 
     const [credentials,setCredentials]=useState({name:"" ,email:"",password:"",cpassword:""});
     let navigate=useNavigate();
@@ -28,9 +28,12 @@ const Signup = () => {
 
                 localStorage.setItem('token',json.authtoken);
                 navigate("/");
+                showAlert("you are signed up","success");
+
             }
             else{
-                alert("invalide credentials")//js alert 
+                // alert("invalide credentials")//js alert 
+                showAlert("invalid details","danger");
             }
 
     };
