@@ -2,13 +2,22 @@ import React, { useContext, useEffect,useState, useRef } from "react";
 import NoteContext from "../contexts/notes/NoteContext";
 import Noteitem from "./Noteitem";
 import AddNote from "./AddNote";
+import { useNavigate } from 'react-router-dom';
 
 const Notes = ({showAlert}) => {
   const context = useContext(NoteContext);
   const { notes, getNotes,editNote } = context;
+  const navigate= useNavigate();
+
   useEffect(() => {
-    getNotes();
-  }, [getNotes]);
+    if(localStorage.getItem('token')){
+      getNotes();
+    }
+    else{
+      navigate("/Login")
+    }
+   
+  }, [getNotes,navigate]);
   const[note,setNote]=useState({ id:"",etitle:"", edescription:"", etag:"default"})
 
   //function for opening the update form
